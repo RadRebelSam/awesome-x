@@ -194,6 +194,24 @@
     font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em;
   }
 
+  /* Built-with list: rows, not cards, so one entry does not look lonely. */
+  .built { margin-top: 26px; border-top: 1px solid var(--line); }
+  .built-row {
+    display: flex; gap: 24px; align-items: baseline; justify-content: space-between;
+    padding: 20px 0; border-bottom: 1px solid var(--line);
+    text-decoration: none; color: inherit;
+  }
+  .built-row b { display: block; font-size: 17px; font-weight: 620; }
+  .built-row span { display: block; }
+  .built-row > div span { color: var(--muted); font-size: 14.5px; margin-top: 6px; max-width: 62ch; }
+  .built-row .go { color: var(--accent); font-size: 13.5px; font-weight: 560; white-space: nowrap; }
+  .built-row:hover b { text-decoration: underline; text-underline-offset: 3px; }
+  .built-row.add b { color: var(--muted); font-weight: 560; }
+  @media (max-width: 760px) {
+    .built-row { flex-direction: column; gap: 10px; }
+    .built-row .go { white-space: normal; }
+  }
+
   footer { padding: 40px 0 56px; }
   .foot { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
   .foot .spacer { flex: 1; }
@@ -219,6 +237,7 @@
     <a class="link hide-sm" href="#how">How it works</a>
     <a class="link hide-sm" href="#judge">The judge</a>
     <a class="link hide-sm" href="#start">Quickstart</a>
+    <a class="link hide-sm" href="#built">Built with it</a>
     <a class="btn" href="https://github.com/RadRebelSam/awesome-x">GitHub</a>
   </div>
 </header>
@@ -442,13 +461,40 @@ CLOUDFLARE_API_TOKEN=<span class="s">...</span>
     <h2>New code, proven shape.</h2>
     <p class="lede">
       awesome-x is the extraction of a crawler that has been running daily since
-      September 2026 on
-      <a href="https://awesomejev.radrebeldeveloper.com/">awesomejev.radrebeldeveloper.com</a> -
-      same pipeline, same coverage check, with the topic-specific parts lifted into config.
-      The framework itself is days old. The Cloudflare path is written to Cloudflare's
-      published request shape but has not yet been run against a live key, so treat the
-      first run as the real test, and open an issue when it is not.
+      September 2026 - same pipeline, same coverage check, with the topic-specific parts
+      lifted into config. The framework itself is days old. The Cloudflare path is written
+      to Cloudflare's published request shape but has not yet been run against a live key,
+      so treat the first run as the real test, and open an issue when it is not.
     </p>
+  </div>
+</section>
+
+
+<section id="built" class="tint">
+  <div class="wrap">
+    <p class="label">Built with it</p>
+    <h2>Lists running on awesome-x.</h2>
+
+    <div class="built">
+      <a class="built-row" href="https://awesomejev.radrebeldeveloper.com/">
+        <div>
+          <b>Awesome Jev</b>
+          <span>Projects built on Jev, TypeSafe AI's System One model. Crawled, judged and
+            republished every morning since September 2026 - the directory this framework
+            was extracted from.</span>
+        </div>
+        <span class="go">awesomejev.radrebeldeveloper.com &rarr;</span>
+      </a>
+
+      <a class="built-row add" href="mailto:contact@radrebeldeveloper.com?subject=Built%20with%20awesome-x">
+        <div>
+          <b>Put yours here</b>
+          <span>Running a directory on awesome-x? Send the repository and the live URL and
+            it goes on this page.</span>
+        </div>
+        <span class="go">contact@radrebeldeveloper.com &rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -457,7 +503,7 @@ CLOUDFLARE_API_TOKEN=<span class="s">...</span>
     <span>awesome-x - MIT licensed. The list you build with it is yours.</span>
     <span class="spacer"></span>
     <a href="https://github.com/RadRebelSam/awesome-x">GitHub</a>
-    <a href="https://awesomejev.radrebeldeveloper.com/">Built with it</a>
+    <a href="#built">Built with it</a>
   </div>
 </footer>
 
