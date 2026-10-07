@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>awesome-x - awesome lists that maintain themselves</title>
+<meta name="description" content="Point it at a topic. It crawls GitHub and npm, puts every candidate to a decision model with one typed question, and keeps what qualifies. Open source, no dependencies.">
+<link rel="canonical" href="https://awesomex.radrebeldeveloper.com/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="awesome-x">
+<meta property="og:description" content="Awesome lists that maintain themselves. A decision model judges every candidate against one sentence you write.">
+<meta property="og:url" content="https://awesomex.radrebeldeveloper.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="awesome-x">
+<meta name="twitter:description" content="Awesome lists that maintain themselves. A decision model judges every candidate against one sentence you write.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --panel: #f6f6f5;
+    --line: #e4e4e2;
+    --line-strong: #d2d2cf;
+    --ink: #16161a;
+    --muted: #6b6b73;
+    --accent: #1f6f4a;
+    --accent-soft: #e8f3ed;
+    --code-bg: #15171a;
+    --code-ink: #e7e9ea;
+    --code-muted: #8b949e;
+    --code-accent: #7ee2b0;
+    --radius: 10px;
+    --maxw: 1080px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101113;
+      --panel: #16181b;
+      --line: #26282c;
+      --line-strong: #34373c;
+      --ink: #ecedee;
+      --muted: #9b9ca3;
+      --accent: #57c08b;
+      --accent-soft: #15241d;
+      --code-bg: #0b0c0e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101113;
+    --panel: #16181b;
+    --line: #26282c;
+    --line-strong: #34373c;
+    --ink: #ecedee;
+    --muted: #9b9ca3;
+    --accent: #57c08b;
+    --accent-soft: #15241d;
+    --code-bg: #0b0c0e;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+  a { color: inherit; }
+
+  /* Micro-label: the page is organised by these, not by decoration. */
+  .label {
+    font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin: 0 0 18px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+  }
+  .nav { display: flex; align-items: center; gap: 16px; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 650; letter-spacing: -0.01em; text-decoration: none; }
+  .brand svg { display: block; border-radius: 6px; }
+  .nav .spacer { flex: 1; }
+  .nav a.link { color: var(--muted); text-decoration: none; font-size: 14px; }
+  .nav a.link:hover { color: var(--ink); }
+  @media (max-width: 640px) { .nav a.link.hide-sm { display: none; } }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 15px; border-radius: 8px; font-size: 14px; font-weight: 560;
+    text-decoration: none; border: 1px solid var(--line-strong); color: var(--ink);
+    background: transparent; white-space: nowrap;
+  }
+  .btn:hover { border-color: var(--ink); }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn.primary:hover { opacity: 0.88; }
+
+  section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+  section.tint { background: var(--panel); }
+  h1, h2, h3 { letter-spacing: -0.021em; margin: 0; }
+  h1 { font-size: clamp(34px, 5.4vw, 54px); line-height: 1.07; font-weight: 680; }
+  h2 { font-size: clamp(24px, 3.2vw, 32px); line-height: 1.15; font-weight: 650; }
+  h3 { font-size: 17px; font-weight: 620; }
+  p { margin: 14px 0 0; }
+  .lede { font-size: 17px; color: var(--muted); max-width: 60ch; }
+  .muted { color: var(--muted); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  @media (max-width: 900px) { .hero { grid-template-columns: 1fr; gap: 32px; } }
+  .hero .accent { color: var(--accent); }
+  .cta-row { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+  .meta-line { margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+  /* Code window */
+  .code {
+    background: var(--code-bg); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .code .bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 13px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 12px; color: var(--code-muted);
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .code .dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.16); }
+  .code pre {
+    margin: 0; padding: 16px 18px; overflow-x: auto;
+    font: 12.5px/1.75 ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    color: var(--code-ink);
+  }
+  .code .k { color: var(--code-accent); }
+  .code .s { color: #b9c6d8; }
+  .code .c { color: var(--code-muted); }
+
+  /* Steps strip */
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 760px) { .strip { grid-template-columns: repeat(2, 1fr); } }
+  .strip > div { padding: 0 20px; border-left: 1px solid var(--line); }
+  .strip > div:first-child { padding-left: 0; border-left: 0; }
+  @media (max-width: 760px) {
+    .strip > div { padding: 14px 16px; border-left: 1px solid var(--line); }
+    .strip > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  }
+  .strip .n { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); font-weight: 650; }
+  .strip h3 { margin-top: 8px; }
+  .strip p { font-size: 14px; color: var(--muted); }
+
+  /* Cards */
+  .grid { display: grid; gap: 16px; margin-top: 28px; }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 860px) { .cols-3, .cols-2 { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;
+    background: var(--bg);
+  }
+  .card p { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
+
+  /* Split */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 28px; } }
+
+  /* Pipeline */
+  .pipe { display: grid; gap: 10px; margin-top: 26px; }
+  .pipe .row {
+    display: grid; grid-template-columns: 180px 1fr; gap: 18px; align-items: baseline;
+    padding: 14px 0; border-top: 1px solid var(--line);
+  }
+  @media (max-width: 640px) { .pipe .row { grid-template-columns: 1fr; gap: 4px; } }
+  .pipe .row b { font-weight: 600; }
+  .pipe .row span { color: var(--muted); font-size: 14.5px; }
+  .pipe .fork { padding-left: 18px; border-left: 2px solid var(--accent); }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin-top: 26px; font-size: 14.5px; }
+  th, td { text-align: left; padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  td code, .inline { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+  td:last-child, th:last-child { text-align: right; white-space: nowrap; }
+  @media (max-width: 640px) {
+    table, thead, tbody, tr, th, td { display: block; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--line); padding: 12px 0; }
+    th, td { border: 0; padding: 2px 0; text-align: left !important; }
+  }
+
+  .pill {
+    display: inline-block; padding: 3px 9px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em;
+  }
+
+  footer { padding: 40px 0 56px; }
+  .foot { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+  .foot .spacer { flex: 1; }
+  .foot a { text-decoration: none; }
+  .foot a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#17171a"/>
+        <rect x="14" y="17" width="28" height="6" rx="3" fill="#57c08b"/>
+        <circle cx="47" cy="20" r="3" fill="#57c08b"/>
+        <rect x="14" y="29" width="22" height="6" rx="3" fill="#57c08b" opacity="0.42"/>
+        <rect x="14" y="41" width="15" height="6" rx="3" fill="#57c08b" opacity="0.18"/>
+      </svg>
+      awesome-x
+    </a>
+    <div class="spacer"></div>
+    <a class="link hide-sm" href="#how">How it works</a>
+    <a class="link hide-sm" href="#judge">The judge</a>
+    <a class="link hide-sm" href="#start">Quickstart</a>
+    <a class="btn" href="https://github.com/RadRebelSam/awesome-x">GitHub</a>
+  </div>
+</header>
+
+<section id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="label">Open source · MIT · No dependencies</p>
+      <h1>An awesome list that<br>maintains <span class="accent">itself</span>.</h1>
+      <p class="lede">
+        Point it at a topic. It crawls GitHub and npm for candidates, puts each one to a
+        decision model with a single typed question, and keeps the entries the model is
+        confident about. Then it writes your README and rebuilds your site, every day,
+        without you.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/RadRebelSam/awesome-x">
+          Use this template
+        </a>
+        <a class="btn" href="#start">Read the quickstart</a>
+      </div>
+      <p class="meta-line">Node 20+ · runs free on GitHub Actions and Pages</p>
+    </div>
+
+    <div class="code">
+      <div class="bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span style="margin-left:6px">topics/your-topic.json</span>
+      </div>
+<pre><span class="c">// The one sentence that defines your list.</span>
+<span class="c">// Everything else in the repo is plumbing.</span>
+{
+  <span class="k">"judge"</span>: {
+    <span class="k">"criterion"</span>: <span class="s">"A repository qualifies when its</span>
+<span class="s">       own code calls, wraps or extends the</span>
+<span class="s">       library. It does not qualify when it</span>
+<span class="s">       only mentions it, or is a list of</span>
+<span class="s">       other people's projects."</span>,
+    <span class="k">"listAt"</span>: <span class="s">0.75</span>,
+    <span class="k">"rejectAt"</span>: <span class="s">0.45</span>
+  }
+}</pre>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="wrap">
+    <div class="strip">
+      <div>
+        <div class="n">01 Crawl</div>
+        <h3>Find candidates</h3>
+        <p>GitHub search and npm, sharded past the 1000-result cap, with cheap regex scoring to decide what is worth a judgement.</p>
+      </div>
+      <div>
+        <div class="n">02 Judge</div>
+        <h3>Ask one question</h3>
+        <p>Each candidate goes to a decision model as state, with your criterion as a single typed question. It returns a probability.</p>
+      </div>
+      <div>
+        <div class="n">03 Review</div>
+        <h3>Only the unsure</h3>
+        <p>Confident yes is listed, confident no is dropped. The band between lands in a file for you, and your call is permanent.</p>
+      </div>
+      <div>
+        <div class="n">04 Publish</div>
+        <h3>README and site</h3>
+        <p>The list is written between markers in your README and into a searchable static site. A scheduled Action commits both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap split">
+    <div>
+      <p class="label">Why not just grep</p>
+      <h2>A keyword crawler finds mentions.<br>A judge finds members.</h2>
+      <p class="lede">
+        Search for a library name and you get every awesome-list clone, every
+        "models we support" table, and every project that happened to use the word.
+        That is why hand-maintained lists go stale: filtering the noise is the work,
+        and nobody wants to do it twice.
+      </p>
+      <p class="lede">
+        Asking a model one typed question per candidate moves that work off your desk
+        and leaves a number behind - so a reader can see on what basis each entry got in,
+        and you can be challenged on it.
+      </p>
+    </div>
+    <div>
+      <div class="pipe">
+        <div class="row"><b>GitHub + npm</b><span>every query, deduplicated</span></div>
+        <div class="row"><b>Regex signals</b><span>cheap, so it runs on everything</span></div>
+        <div class="row"><b>Review queue</b><span>plausible enough to be worth judging</span></div>
+        <div class="row"><b>The judge</b><span>one typed question per candidate</span></div>
+        <div class="row fork"><b>&ge; 0.75</b><span>listed</span></div>
+        <div class="row fork"><b>&le; 0.45</b><span>rejected</span></div>
+        <div class="row fork"><b>in between</b><span>a file you review by hand</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="judge" class="tint">
+  <div class="wrap">
+    <p class="label">The judge</p>
+    <h2>Two vendors, one request shape.</h2>
+    <p class="lede">
+      These are decision models, not chat models: they take a state and a map of typed
+      questions, and return a calibrated probability for every allowed option. Set
+      credentials for one and the framework resolves the rest.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Model</th><th>Provider</th><th>Size</th><th>Input price</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>@cf/cloudflare/clef</code></td>
+          <td>Cloudflare Workers AI</td>
+          <td>27B, multimodal</td>
+          <td>$0.24 / 1M tokens</td>
+        </tr>
+        <tr>
+          <td><code>@cf/cloudflare/clef-flash</code> <span class="pill">cheapest</span></td>
+          <td>Cloudflare Workers AI</td>
+          <td>9B, multimodal</td>
+          <td>$0.09 / 1M tokens</td>
+        </tr>
+        <tr>
+          <td><code>jev-latest</code></td>
+          <td>TypeSafe System One, direct or via Vercel AI Gateway</td>
+          <td>-</td>
+          <td>see provider</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>One adapter</h3>
+        <p>Only <span class="inline">tools/lib/judge.js</span> knows which vendor answered. Swapping providers is an environment variable, not a refactor.</p>
+      </div>
+      <div class="card">
+        <h3>A membership check</h3>
+        <p>The number says how confident the model was that an entry meets your criterion. It is not a quality score, and the site says so on every card.</p>
+      </div>
+      <div class="card">
+        <h3>Cheap enough to ignore</h3>
+        <p>Judging a few thousand candidates costs cents. The GitHub API rate limit is what actually sets the pace of a run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">What you get</p>
+    <h2>A repository that runs without you.</h2>
+
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>A README that updates itself</h3>
+        <p>The list is rendered between two markers, so your hand-written introduction is never touched. Categories, star counts and trending entries are regenerated every run.</p>
+      </div>
+      <div class="card">
+        <h3>A searchable static site</h3>
+        <p>Filter, sort and search the list in the browser. Generated from your config, served by GitHub Pages, no build step and no framework.</p>
+      </div>
+      <div class="card">
+        <h3>A dated coverage check</h3>
+        <p>It fetches the largest rival lists on your topic and records which of them already list each entry. That turns "you will not find this elsewhere" into a claim someone can verify.</p>
+      </div>
+      <div class="card">
+        <h3>State you can read in a diff</h3>
+        <p>Every entry, verdict and dismissal is JSON in the repo. When the crawler does something strange, <span class="inline">git diff</span> shows you exactly what and when.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start" class="tint">
+  <div class="wrap split">
+    <div>
+      <p class="label">Quickstart</p>
+      <h2>A new directory is a config file.</h2>
+      <p class="lede">
+        Copy the example topic, write your criterion, add one provider's credentials as
+        repository secrets, and run it. When a manual run looks right, uncomment the
+        schedule and leave it alone.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/RadRebelSam/awesome-x">Open the repository</a>
+      </div>
+    </div>
+    <div class="code">
+      <div class="bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span style="margin-left:6px">terminal</span>
+      </div>
+<pre><span class="c"># one provider, in .env.local or the environment</span>
+CLOUDFLARE_ACCOUNT_ID=<span class="s">...</span>
+CLOUDFLARE_API_TOKEN=<span class="s">...</span>
+
+<span class="k">npm run</span> fetch      <span class="c"># discover and score candidates</span>
+<span class="k">npm run</span> judge      <span class="c"># put the queue to the model</span>
+<span class="k">npm run</span> refresh    <span class="c"># stars and push dates</span>
+<span class="k">npm run</span> coverage   <span class="c"># what rival lists already have</span>
+<span class="k">npm run</span> render     <span class="c"># README.md and site/</span>
+
+<span class="k">npm run</span> update     <span class="c"># all of it, in order</span></pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Honest status</p>
+    <h2>New code, proven shape.</h2>
+    <p class="lede">
+      awesome-x is the extraction of a crawler that has been running daily since
+      September 2026 on
+      <a href="https://awesomejev.radrebeldeveloper.com/">awesomejev.radrebeldeveloper.com</a> -
+      same pipeline, same coverage check, with the topic-specific parts lifted into config.
+      The framework itself is days old. The Cloudflare path is written to Cloudflare's
+      published request shape but has not yet been run against a live key, so treat the
+      first run as the real test, and open an issue when it is not.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>awesome-x - MIT licensed. The list you build with it is yours.</span>
+    <span class="spacer"></span>
+    <a href="https://github.com/RadRebelSam/awesome-x">GitHub</a>
+    <a href="https://awesomejev.radrebeldeveloper.com/">Built with it</a>
+  </div>
+</footer>
+
+</body>
+</html>
