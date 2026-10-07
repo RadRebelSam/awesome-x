@@ -85,9 +85,12 @@ jobs:
 
   # A push made with GITHUB_TOKEN does not start another workflow, so the site
   # deploy has to be chained here rather than left to the push trigger.
+  # Needs Pages enabled first: Settings > Pages > Source: GitHub Actions. Set
+  # the variable PUBLISH_SITE to any non-empty value once it is, or this job
+  # fails with "Get Pages site failed" on the first successful crawl.
   deploy:
     needs: update
-    if: needs.update.outputs.changed == 'true'
+    if: needs.update.outputs.changed == 'true' && vars.PUBLISH_SITE != ''
     runs-on: ubuntu-latest
     environment:
       name: github-pages

@@ -1,11 +1,14 @@
 name: Publish directory site
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'site/**'
-      - '.github/workflows/pages.yml'
+  # Uncomment after you enable Pages: repository Settings > Pages > Source:
+  # GitHub Actions. Until then any deploy fails with "Get Pages site failed",
+  # because there is no Pages site to deploy to yet.
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'site/**'
+  #     - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
