@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Directory">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="awesome-x">
   <!--
-    Favicon cut of the mark: two rows instead of three and heavier bars, because
-    at 16px the third row and the dot turn to mush. Same idea, fewer parts.
+    Favicon cut of the mark: heavier strokes and a taller dash, because at 16px
+    the thin version turns to mush.
   -->
-  <rect width="64" height="64" rx="13" fill="#17171a"/>
-  <rect x="12" y="19" width="32" height="9" rx="4.5" fill="#57c08b"/>
-  <rect x="12" y="36" width="21" height="9" rx="4.5" fill="#57c08b" opacity="0.4"/>
+  <rect width="64" height="64" rx="16" fill="#f5b942"/>
+  <rect x="8" y="28" width="16" height="8" rx="4" fill="#2a1d00"/>
+  <path d="M33 22L52 42M52 22L33 42" stroke="#2a1d00" stroke-width="7.5" stroke-linecap="round"/>
 </svg>
