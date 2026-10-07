@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="t">
+  <title id="t">Directory</title>
+  <!--
+    The mark is the directory's one idea: a list being filtered.
+    Three rows, top one kept and accented, the others dimming away, with the dot
+    standing in for the probability that decided it.
+  -->
+  <rect width="64" height="64" rx="14" fill="#17171a"/>
+  <rect x="14" y="17" width="28" height="6" rx="3" fill="#57c08b"/>
+  <circle cx="47" cy="20" r="3" fill="#57c08b"/>
+  <rect x="14" y="29" width="22" height="6" rx="3" fill="#57c08b" opacity="0.42"/>
+  <rect x="14" y="41" width="15" height="6" rx="3" fill="#57c08b" opacity="0.18"/>
+</svg>

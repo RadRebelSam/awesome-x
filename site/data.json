@@ -1,0 +1,44 @@
+{
+  "categories": [],
+  "counts": {
+    "exclusive": 0,
+    "judged": 0,
+    "reviewQueue": 0,
+    "total": 0
+  },
+  "coverage": {
+    "checkedOn": null,
+    "complete": false,
+    "sources": [],
+    "sourcesChecked": 0,
+    "sourcesHealthy": 0
+  },
+  "entries": [],
+  "generatedAt": "2026-10-07T10:50:34.429Z",
+  "judge": {
+    "criterion": "A repository qualifies when its own code calls, wraps, benchmarks or reimplements the Jev model or the TypeSafe System One API. It does not qualify when it only mentions or links Jev, when it is a curated list, directory, tracker or awesome-list of other people's Jev projects, when it is a copy of TypeSafe's documentation, when it is general-purpose software unrelated to Jev, or when it is an empty placeholder.",
+    "label": "Jev match",
+    "listAt": 0.75,
+    "name": "Clef",
+    "rejectAt": 0.45
+  },
+  "site": {
+    "analyticsScript": "",
+    "contact": {
+      "email": "you@example.com",
+      "label": "Get in touch",
+      "subject": "Directory",
+      "text": "Replace or delete this block: it is the pitch that shows under the list."
+    },
+    "coverage": {
+      "collapseRatio": 0.5,
+      "maxAgeDays": 7,
+      "maxListSources": 12,
+      "minListStars": 20
+    },
+    "repository": "your-name/awesome-example",
+    "url": "https://example.github.io/awesome-example/"
+  },
+  "tagline": "Tools, SDKs, integrations and examples for Jev, the System One model from TypeSafe AI.",
+  "topic": "Awesome Jev"
+}

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Jev</title>
+<meta name="description" content="Tools, SDKs, integrations and examples for Jev, the System One model from TypeSafe AI.">
+<link rel="canonical" href="https://example.github.io/awesome-example/">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Awesome Jev">
+<meta property="og:description" content="Tools, SDKs, integrations and examples for Jev, the System One model from TypeSafe AI.">
+<meta property="og:url" content="https://example.github.io/awesome-example/">
+<meta property="og:image" content="https://example.github.io/awesome-example/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Awesome Jev">
+<meta name="twitter:description" content="Tools, SDKs, integrations and examples for Jev, the System One model from TypeSafe AI.">
+<meta name="twitter:image" content="https://example.github.io/awesome-example/og.png">
+<link rel="apple-touch-icon" href="logo.svg">
+<style>
+  :root {
+    --bg: #fbfbfa; --panel: #ffffff; --line: #e4e4e2; --ink: #16161a;
+    --muted: #6b6b73; --accent: #1f6f4a; --accent-soft: #e8f3ed; --chip: #f2f2f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101012; --panel: #17171a; --line: #26262b; --ink: #ececf0;
+      --muted: #9a9aa4; --accent: #57c08b; --accent-soft: #14281f; --chip: #202025;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px 64px; }
+  header { padding: 40px 0 20px; }
+  .lockup { display: flex; align-items: center; gap: 12px; margin: 0 0 6px; }
+  .lockup img { width: 40px; height: 40px; border-radius: 10px; flex: none; }
+  h1 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+  .tagline { margin: 0 0 18px; color: var(--muted); max-width: 62ch; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stat {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 12px; font-size: 13px;
+  }
+  .stat b { font-size: 16px; display: block; }
+  .stat.hero { background: var(--accent-soft); border-color: var(--accent); }
+  .controls {
+    position: sticky; top: 0; z-index: 2; background: var(--bg);
+    padding: 14px 0; border-bottom: 1px solid var(--line); margin-bottom: 14px;
+  }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  input[type="search"], select {
+    font: inherit; color: inherit; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px;
+  }
+  input[type="search"] { flex: 1 1 260px; }
+  .toggle {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 13px;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 8px; padding: 8px 11px; cursor: pointer; user-select: none;
+  }
+  .count { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+  .sources { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+  .sources summary { cursor: pointer; }
+  .sources ul { margin: 8px 0 0; padding-left: 20px; columns: 2; column-gap: 24px; }
+  @media (max-width: 560px) { .sources ul { columns: 1; } }
+  .pitch {
+    display: grid; gap: 12px; margin: 18px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .pitch > div {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px;
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .pitch h2 { margin: 0 0 4px; font-size: 15px; }
+  .pitch p { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+  .pitch a.cta {
+    font: inherit; line-height: 1.2; border: 1px solid var(--accent);
+    background: var(--accent); color: var(--bg); border-radius: 8px;
+    padding: 10px 15px; cursor: pointer; text-decoration: none;
+    white-space: nowrap; display: inline-flex; align-items: center;
+  }
+  /* A 13px line needs real air under a 40px button, not the 8px the form note
+     uses. Scoped under .pitch so it outranks `.pitch p`, which would otherwise
+     win on specificity and hold the top margin at zero. */
+  .pitch p.cta-note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+  /* The address is the call to action, so it reads at body size and stays
+     selectable for anyone without a mail client. */
+  .pitch p.contact-line { margin: 4px 0 0; font-size: 15px; color: var(--ink); }
+  .pitch p.contact-line a { color: var(--accent); font-weight: 600; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 10px;
+  }
+  .card h2 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+  .card h2 a { color: inherit; text-decoration: none; }
+  .card h2 a:hover { color: var(--accent); text-decoration: underline; }
+  .desc { margin: 0 0 10px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    background: var(--chip); border-radius: 999px; padding: 3px 9px;
+    font-size: 12px; color: var(--muted); white-space: nowrap;
+  }
+  .chip.rating { background: var(--accent-soft); color: var(--accent); font-variant-numeric: tabular-nums; }
+  .chip.only { background: var(--accent); color: var(--bg); }
+  .chip.up { color: var(--accent); }
+  footer { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+  footer a, .tagline a { color: var(--accent); }
+  #more { width: 100%; padding: 12px; font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; }
+  @media (max-width: 560px) { header { padding-top: 28px; } h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="lockup">
+      <img src="logo.svg" width="40" height="40" alt="">
+      <h1 id="title">Awesome Jev</h1>
+    </div>
+    <p class="tagline" id="tagline"></p>
+    <div class="stats" id="stats"></div>
+    <details class="sources" id="how"></details>
+    <details class="sources" id="sources"></details>
+    <div class="pitch" id="pitch"></div>
+  </header>
+
+  <div class="controls">
+    <div class="row">
+      <input type="search" id="q" placeholder="Search name, description, language…" autocomplete="off">
+      <select id="category"><option value="">All categories</option></select>
+      <select id="sort">
+        <option value="stars">Most stars</option>
+        <option value="week">Fastest growing</option>
+        <option value="pushed">Recently updated</option>
+        <option value="new">Newest found</option>
+      </select>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label class="toggle"><input type="checkbox" id="exclusive"> Only here</label>
+      <label class="toggle"><input type="checkbox" id="judged"> Cleared by the judge only</label>
+      <label class="toggle"><input type="checkbox" id="fresh"> Pushed in last 7 days</label>
+    </div>
+  </div>
+
+  <p class="count" id="count">Loading…</p>
+  <div id="list"></div>
+  <button id="more" hidden>Show more</button>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+const PAGE = 60;
+const state = { data: null, shown: PAGE };
+const el = (id) => document.getElementById(id);
+
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function ago(days) {
+  if (days === null || days === undefined || !isFinite(days)) return 'unknown';
+  if (days <= 0) return 'today';
+  if (days === 1) return 'yesterday';
+  if (days < 30) return days + 'd ago';
+  if (days < 365) return Math.round(days / 30) + 'mo ago';
+  return Math.round(days / 365) + 'y ago';
+}
+
+function filtered() {
+  const q = el('q').value.trim().toLowerCase();
+  const category = el('category').value;
+  const onlyHere = el('exclusive').checked;
+  const onlyJudged = el('judged').checked;
+  const onlyFresh = el('fresh').checked;
+
+  const rows = state.data.entries.filter((e) => {
+    if (category && e.category !== category) return false;
+    if (onlyHere && !e.exclusive) return false;
+    if (onlyJudged && (e.rating === null || e.rating < state.data.judge.listAt)) return false;
+    if (onlyFresh && e.daysSincePush > 7) return false;
+    if (!q) return true;
+    return (e.name + ' ' + e.description + ' ' + (e.language || '')).toLowerCase().includes(q);
+  });
+
+  const by = {
+    stars: (a, b) => b.stars - a.stars,
+    week: (a, b) => b.starsWeek - a.starsWeek || b.stars - a.stars,
+    pushed: (a, b) => a.daysSincePush - b.daysSincePush || b.stars - a.stars,
+    new: (a, b) => String(b.firstSeen).localeCompare(String(a.firstSeen)) || b.stars - a.stars,
+    // There is deliberately no sort by the judge's number. It is a membership
+    // check, so most listed entries sit near the top of the range and ordering
+    // by it would imply a ranking the number does not carry.
+  }[el('sort').value];
+
+  return rows.sort(by);
+}
+
+const repoUrl = (data) => 'https://github.com/' + (data.site?.repository ?? '');
+
+function card(e) {
+  const chips = ['<span class="chip">' + esc(e.categoryTitle) + '</span>'];
+  if (e.exclusive) chips.push('<span class="chip only">only here</span>');
+  if (e.rating !== null) {
+    const judge = state.data.judge;
+    chips.push(
+      '<span class="chip rating" title="' + esc(judge.name) + ' put the criterion to this entry and returned ' +
+      'this probability. It is a membership check, not a quality rating.">' +
+      esc(judge.label) + ' ' + e.rating.toFixed(2) + '</span>',
+    );
+  }
+  chips.push('<span class="chip">' + e.stars + ' stars</span>');
+  if (e.starsWeek > 0) chips.push('<span class="chip up">+' + e.starsWeek + ' this week</span>');
+  if (e.language) chips.push('<span class="chip">' + esc(e.language) + '</span>');
+  if (e.license) chips.push('<span class="chip">' + esc(e.license) + '</span>');
+  chips.push('<span class="chip">updated ' + ago(e.daysSincePush) + '</span>');
+
+  return '<article class="card">' +
+    '<h2><a href="' + esc(e.url) + '" target="_blank" rel="noopener noreferrer">' + esc(e.name) + '</a></h2>' +
+    '<p class="desc">' + esc(e.description || 'No description provided.') + '</p>' +
+    '<div class="meta">' + chips.join('') + '</div>' +
+    '</article>';
+}
+
+function render(reset) {
+  if (reset) state.shown = PAGE;
+  const rows = filtered();
+  el('count').textContent = rows.length + ' of ' + state.data.entries.length + ' entries';
+  el('list').innerHTML = rows.slice(0, state.shown).map(card).join('');
+  el('more').hidden = rows.length <= state.shown;
+}
+
+function renderPitch(site) {
+  const contact = site.contact ?? {};
+  const cards = [];
+  if (contact.text) {
+    const mailto = `mailto:${contact.email}${contact.subject ? `?subject=${encodeURIComponent(contact.subject)}` : ''}`;
+    cards.push(`<div>
+      <h2>Want one for your own ecosystem?</h2>
+      <p>${esc(contact.text)}</p>
+      <p class="contact-line">${esc(contact.label || 'Get in touch')}:
+        <a href="${esc(mailto)}">${esc(contact.email)}</a></p>
+    </div>`);
+  }
+
+  el('pitch').innerHTML = cards.join('');
+}
+
+async function start() {
+  const res = await fetch('data.json');
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const data = await res.json();
+  state.data = data;
+
+  const cov = data.coverage ?? {};
+
+  el('tagline').textContent = data.tagline +
+    ' Entries are not picked by hand or by keyword: every candidate is put to ' + data.judge.name +
+    ', and the probability it returned is printed on the card.';
+
+  el('stats').innerHTML = [
+    ['entries', data.counts.total, false],
+    [`in none of the ${data.coverage?.sourcesChecked ?? 0} directories checked`, data.counts.exclusive, true],
+    ['judged by ' + data.judge.name, data.counts.judged, false],
+    ['awaiting a human', data.counts.reviewQueue, false],
+  ].map((row) => '<div class="stat' + (row[2] ? ' hero' : '') + '"><b>' + row[1] + '</b>' + row[0] + '</div>').join('');
+
+  el('how').innerHTML =
+    '<summary>What the “' + esc(data.judge.label) + '” number on each card means</summary>' +
+    '<p>Every candidate is sent to ' + esc(data.judge.name) + ' as state, with one typed question: ' +
+    '<em>' + esc(data.judge.criterion) + '</em> The probability it returns is the number on the card.</p>' +
+    '<p><strong>It is a membership check, not a quality rating.</strong> A widely used project and someone&#39;s ' +
+    'weekend experiment can score the same, because both plainly qualify. A lower number means the evidence ' +
+    'was thinner, not that the project is worse.</p>' +
+    '<p>At or above ' + data.judge.listAt + ' an entry is listed, at or below ' + data.judge.rejectAt +
+    ' it is rejected, and the band between goes to a human.</p>';
+
+  // Naming the sources is the difference between a claim and a checkable claim.
+  if (cov.sources?.length) {
+    el('sources').innerHTML =
+      `<summary>Coverage checked against ${cov.sources.length} other directories` +
+      `${cov.checkedOn ? ` on ${esc(cov.checkedOn)}` : ''}${cov.complete ? '' : ' (partial run)'}</summary>` +
+      `<ul>${cov.sources.map((name) => {
+        const href = name.includes('/')
+          ? `https://github.com/${esc(name)}`
+          : `https://${esc(name)}`;
+        return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${esc(name)}</a></li>`;
+      }).join('')}</ul>` +
+      `<p>An entry is marked <em>only here</em> when its GitHub link appears in none of them. ` +
+      `Matching is by repository link, so a directory listing a project by its homepage instead would not be seen. ` +
+      `The working is in <a href="${esc(repoUrl(data))}/blob/main/data/coverage.json">data/coverage.json</a>.</p>`;
+  }
+
+  renderPitch(data.site ?? {});
+
+  el('category').insertAdjacentHTML('beforeend', data.categories.map((c) =>
+    '<option value="' + esc(c.id) + '">' + esc(c.title) + ' (' + c.count + ')</option>').join(''));
+
+  const coverageLine = cov.checkedOn
+    ? ` Coverage checked against ${cov.sourcesChecked} other directories on ${cov.checkedOn}` +
+      (cov.complete ? '.' : `, ${cov.sourcesHealthy} of which answered.`)
+    : '';
+
+  el('footer').innerHTML =
+    'Rebuilt from a daily crawl of GitHub, npm and the other public directories on this topic.' + coverageLine +
+    ' Last updated ' + new Date(data.generatedAt).toISOString().slice(0, 10) +
+    (data.site?.repository
+      ? '. Source and the full list: <a href="' + esc(repoUrl(data)) + '">' + esc(data.site.repository) + '</a>'
+      : '.');
+
+  for (const id of ['q', 'category', 'sort', 'exclusive', 'judged', 'fresh']) {
+    el(id).addEventListener('input', () => render(true));
+  }
+  el('more').addEventListener('click', () => { state.shown += PAGE; render(false); });
+
+  render(true);
+}
+
+start().catch((err) => {
+  el('count').textContent = 'Could not load the directory data: ' + err.message;
+});
+</script>
+</body>
+</html>

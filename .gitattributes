@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.json text eol=lf
+*.md text eol=lf
+data/registry.json linguist-generated=true
+data/review-queue.md linguist-generated=true

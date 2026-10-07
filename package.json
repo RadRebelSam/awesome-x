@@ -1,0 +1,16 @@
+{
+  "name": "awesome-x",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "fetch": "node tools/fetch.js",
+    "judge": "node tools/triage.js && node tools/triage-merge.js && node tools/rescore.js",
+    "refresh": "node tools/refresh.js",
+    "coverage": "node tools/check-coverage.js",
+    "render": "node tools/render.js && node tools/build-site.js",
+    "update": "node tools/fetch.js && node tools/triage.js && node tools/triage-merge.js && node tools/rescore.js && node tools/refresh.js && node tools/check-coverage.js && node tools/render.js && node tools/build-site.js"
+  }
+}
