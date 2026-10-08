@@ -1,6 +1,6 @@
 // Runs the review queue through the judge and records a verdict per candidate.
-// Needs credentials for one provider - Cloudflare Workers AI (clef), Vercel's
-// AI Gateway, or TypeSafe directly - in the environment or in .env.local.
+// Needs credentials for one provider - Cloudflare Workers AI (clef), OpenAI
+// Decisions, Vercel's AI Gateway, or TypeSafe directly - in the environment or in .env.local.
 //
 //   node tools/triage.js                 judge every unjudged candidate
 //   node tools/triage.js --limit=120     judge the top 120 only
