@@ -34,6 +34,7 @@ jobs:
       # A step-level `if` cannot read `secrets`, so they are lifted to the job.
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
       TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
     steps:
@@ -49,7 +50,7 @@ jobs:
         run: node tools/fetch.js ${{ inputs.force && '--force' || '' }}
 
       - name: Judge new candidates
-        if: ${{ env.CLOUDFLARE_API_TOKEN != '' || env.AI_GATEWAY_API_KEY != '' || env.TYPESAFE_API_KEY != '' }}
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' || env.OPENAI_API_KEY != '' || env.AI_GATEWAY_API_KEY != '' || env.TYPESAFE_API_KEY != '' }}
         run: |
           node tools/triage.js
           node tools/triage-merge.js

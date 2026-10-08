@@ -19,20 +19,41 @@ work.
 
 ## The judge
 
-Two vendors ship a decision model that takes a `state` and a map of typed
-`questions` and returns a probability for every option. Either works, and the
-code is the same for both:
+Three providers ship a decision model that takes typed questions and returns a
+probability for every option. Cloudflare and TypeSafe share one request shape (a
+`state` plus a map of `questions`); OpenAI Decisions uses a questions array, which
+`tools/lib/judge.js` translates both ways. Every caller sees the same
+`answers[id].noul` number, whichever one answers:
 
 | Provider | Model | Environment |
 | --- | --- | --- |
 | Cloudflare Workers AI | `@cf/cloudflare/clef`, `@cf/cloudflare/clef-flash` | `CLOUDFLARE_ACCOUNT_ID` + `CLOUDFLARE_API_TOKEN` |
+| OpenAI Decisions | `gpt-6-luna` | `OPENAI_API_KEY` |
 | TypeSafe System One | `jev-latest` | `TYPESAFE_API_KEY` |
 | TypeSafe via Vercel AI Gateway | `typesafe-ai/jev` | `AI_GATEWAY_API_KEY` |
 
-Set the credentials for one of them and the judge resolves itself. Force a choice
-with `judge.provider` in the topic config, or `JUDGE_PROVIDER` in the
-environment. `JUDGE_MODEL` picks the model - `@cf/cloudflare/clef-flash` is the
+Set the credentials for one of them and the judge resolves itself. With several
+sets present, the order is Cloudflare, then OpenAI, then TypeSafe (gateway, then
+direct): the first is used and each later one is chained as its fallback if a call
+fails. Force a choice with `judge.provider` (`cloudflare`, `openai`, `typesafe`)
+in the topic config, or `JUDGE_PROVIDER` in the environment; a forced provider has
+no fallback. OpenAI is always called at `https://api.openai.com/v1/decisions`,
+`OPENAI_BASE_URL` is ignored. `JUDGE_MODEL` picks the model - `@cf/cloudflare/clef-flash` is the
 9B model and roughly a third of the price of the 27B `clef`.
+
+Environment variables at a glance:
+
+- `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` - both needed for Cloudflare.
+- `OPENAI_API_KEY` - OpenAI Decisions.
+- `TYPESAFE_API_KEY` (direct) or `AI_GATEWAY_API_KEY` (via Vercel AI Gateway) - TypeSafe.
+- `JUDGE_PROVIDER` - force `cloudflare`, `openai` or `typesafe`.
+- `JUDGE_MODEL` - override the provider's default model.
+
+What has been proven: on 2026-10-07 Clef (Cloudflare) and OpenAI Decisions were
+each checked with one live round-trip, on two hand-written candidates only. The
+TypeSafe paths are the original ones from the Jev crawler. For Decisions, the
+choice and score mapping is untested end to end (only the yes/no path was
+exercised live), so treat a first real run as the test.
 
 Any endpoint that speaks the same request shape works too: set `JUDGE_URL` and
 `JUDGE_API_KEY`.
@@ -104,7 +125,7 @@ permanently.
 | `tools/check-coverage.js` | Asks which entries the rival directories already list. |
 | `tools/render.js` | Writes the list into this README, between the markers. |
 | `tools/build-site.js` | Writes `site/data.json` and renders `site/index.html`. |
-| `tools/lib/judge.js` | The provider adapter. The only file that knows about Clef or Jev. |
+| `tools/lib/judge.js` | The provider adapter. The only file that knows about Clef, Decisions or Jev. Tests: `node --test tools/lib/judge.test.js`. |
 | `data/*.json` | Crawler state. Committed, so every change is a reviewable diff. |
 
 The site is static: `site/index.html` is generated from
