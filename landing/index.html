@@ -339,11 +339,12 @@
 <section id="judge" class="tint">
   <div class="wrap">
     <p class="label">The judge</p>
-    <h2>Two vendors, one request shape.</h2>
+    <h2>Three vendors, one interface.</h2>
     <p class="lede">
       These are decision models, not chat models: they take a state and a map of typed
       questions, and return a calibrated probability for every allowed option. Set
-      credentials for one and the framework resolves the rest.
+      credentials for one and the framework resolves the rest; with several, the order
+      is Cloudflare, then OpenAI, then TypeSafe.
     </p>
 
     <table>
@@ -362,6 +363,12 @@
           <td>Cloudflare Workers AI</td>
           <td>9B, multimodal</td>
           <td>$0.09 / 1M tokens</td>
+        </tr>
+        <tr>
+          <td><code>gpt-6-luna</code></td>
+          <td>OpenAI Decisions</td>
+          <td>-</td>
+          <td>see provider</td>
         </tr>
         <tr>
           <td><code>jev-latest</code></td>
@@ -456,9 +463,10 @@ CLOUDFLARE_API_TOKEN=<span class="s">...</span>
     <p class="lede">
       awesome-x is the extraction of a crawler that has been running daily since
       September 2026 - same pipeline, same coverage check, with the topic-specific parts
-      lifted into config. The framework itself is days old. The Cloudflare path is written
-      to Cloudflare's published request shape but has not yet been run against a live key,
-      so treat the first run as the real test, and open an issue when it is not.
+      lifted into config. The framework itself is days old. Clef and OpenAI Decisions were
+      each checked with one live round-trip on 2026-10-07, on two hand-written candidates
+      only, and the choice and score mapping for Decisions is untested end to end. Treat
+      the first full run as the real test, and open an issue when it is not.
     </p>
   </div>
 </section>
