@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.DS_Store
+.env
+.env.local
+.env*.local
+data/last-run.md
+
+# Build output of landing/, rebuilt on demand for upload.
+*.zip

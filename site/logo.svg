@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="awesome-x">
+  <!--
+    A markdown list item with the topic left blank: "- x". The dash is the list,
+    the x is whatever you point the crawler at.
+  -->
+  <rect width="64" height="64" rx="16" fill="#f5b942"/>
+  <rect x="10" y="29" width="14" height="6" rx="3" fill="#2a1d00"/>
+  <path d="M33 23L51 41M51 23L33 41" stroke="#2a1d00" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,267 @@
+{
+  "topic": "example",
+  "title": "Awesome Jev",
+  "tagline": "Tools, SDKs, integrations and examples for Jev, the System One model from TypeSafe AI.",
+  "judge": {
+    "provider": "auto",
+    "name": "Clef",
+    "label": "Jev match",
+    "criterion": "A repository qualifies when its own code calls, wraps, benchmarks or reimplements the Jev model or the TypeSafe System One API. It does not qualify when it only mentions or links Jev, when it is a curated list, directory, tracker or awesome-list of other people's Jev projects, when it is a copy of TypeSafe's documentation, when it is general-purpose software unrelated to Jev, or when it is an empty placeholder.",
+    "listAt": 0.75,
+    "rejectAt": 0.45
+  },
+  "search": {
+    "repositoryQueries": [
+      "jev in:name,description pushed:>=2026-09-01",
+      "jev in:readme pushed:>=2026-09-10 stars:>=2",
+      "awesome-jev in:name",
+      "\"system one model\" in:name,description,readme pushed:>=2026-09-01",
+      "\"typesafe.ai\" in:readme pushed:>=2026-09-01",
+      "\"typesafe ai\" jev in:readme pushed:>=2026-09-01",
+      "jev-sdk in:name",
+      "jev-client in:name",
+      "topic:jev",
+      "topic:typesafe-ai",
+      "topic:system-one-model",
+      "user:typesafe-ai"
+    ],
+    "repositorySlices": [
+      "stars:>=200",
+      "stars:50..199",
+      "stars:10..49",
+      "stars:3..9",
+      "stars:0..2"
+    ],
+    "codeQueries": [],
+    "npmQueries": [
+      "jev",
+      "typesafe ai",
+      "system one model"
+    ],
+    "webSources": [
+      {
+        "name": "awesomejev.com",
+        "url": "https://awesomejev.com/"
+      },
+      {
+        "name": "jevmade.com",
+        "url": "https://jevmade.com/data/entries.json"
+      }
+    ]
+  },
+  "signals": [
+    {
+      "name": "typesafe-domain",
+      "pattern": "typesafe\\.ai",
+      "weight": 6,
+      "maxHits": 2
+    },
+    {
+      "name": "typesafe-name",
+      "pattern": "typesafe\\s+ai",
+      "weight": 5,
+      "maxHits": 2
+    },
+    {
+      "name": "system-one",
+      "pattern": "system[-\\s]?(one|1)\\s+model",
+      "weight": 5,
+      "maxHits": 2
+    },
+    {
+      "name": "jev-product",
+      "pattern": "jev[-_\\s]?(sdk|client|api|model|harness|judge|python|js|ts)",
+      "weight": 4,
+      "maxHits": 3
+    },
+    {
+      "name": "jev-token",
+      "pattern": "\\bjev\\b",
+      "weight": 2,
+      "maxHits": 3
+    },
+    {
+      "name": "calibrated",
+      "pattern": "calibrated\\s+probabilit",
+      "weight": 3,
+      "maxHits": 2
+    },
+    {
+      "name": "typed-decision",
+      "pattern": "typed\\s+(decision|question|answer|output)",
+      "weight": 3,
+      "maxHits": 2
+    },
+    {
+      "name": "non-autoregressive",
+      "pattern": "non-?autoregressive",
+      "weight": 2,
+      "maxHits": 1
+    },
+    {
+      "name": "founder",
+      "pattern": "diogo\\s+almeida",
+      "weight": 2,
+      "maxHits": 1
+    }
+  ],
+  "exclude": [
+    {
+      "name": "japanese-encephalitis",
+      "pattern": "encephalitis|flavivirus|arbovirus|mosquito-borne"
+    },
+    {
+      "name": "vaccine-research",
+      "pattern": "\\bvaccin(e|ation)\\b",
+      "minHits": 3
+    },
+    {
+      "name": "jevil",
+      "pattern": "deltarune|jevil"
+    }
+  ],
+  "thresholds": {
+    "autoInclude": 10,
+    "autoIncludeMinStars": 3,
+    "trustedScore": 18,
+    "needsReview": 6,
+    "maxStaleDays": 365
+  },
+  "defaultCategory": "other",
+  "categories": [
+    {
+      "id": "lists",
+      "title": "Other lists and directories",
+      "matchName": [
+        "awesome",
+        "\\bdirectory\\b",
+        "jev-list"
+      ],
+      "renderOrder": 99,
+      "maxEntries": 10
+    },
+    {
+      "id": "official",
+      "title": "Official",
+      "renderOrder": 0,
+      "matchName": [
+        "^typesafe-ai/"
+      ]
+    },
+    {
+      "id": "sdk",
+      "title": "SDKs and clients",
+      "match": [
+        "\\bsdk\\b",
+        "api client",
+        "client library",
+        "\\bwrapper\\b",
+        "bindings"
+      ]
+    },
+    {
+      "id": "integration",
+      "title": "Framework integrations",
+      "match": [
+        "langchain",
+        "llamaindex",
+        "llama-index",
+        "vercel ai sdk",
+        "mastra",
+        "pydantic-ai",
+        "haystack",
+        "dspy",
+        "crewai",
+        "autogen"
+      ]
+    },
+    {
+      "id": "eval",
+      "title": "Evaluation and judging",
+      "match": [
+        "as-a-judge",
+        "\\bjudge\\b",
+        "\\beval(s|uation)?\\b",
+        "benchmark",
+        "scorer",
+        "leaderboard"
+      ]
+    },
+    {
+      "id": "guardrails",
+      "title": "Guardrails and safety",
+      "match": [
+        "guardrail",
+        "moderation",
+        "prompt injection",
+        "jailbreak",
+        "\\bpii\\b",
+        "content filter"
+      ]
+    },
+    {
+      "id": "tooling",
+      "title": "Infrastructure and tooling",
+      "match": [
+        "\\bcli\\b",
+        "\\bproxy\\b",
+        "gateway",
+        "\\brouter\\b",
+        "\\bcache\\b",
+        "observability",
+        "\\bmcp\\b"
+      ]
+    },
+    {
+      "id": "examples",
+      "title": "Examples and templates",
+      "match": [
+        "\\bexample",
+        "\\bdemo\\b",
+        "starter",
+        "template",
+        "playground",
+        "\\bdoom\\b",
+        "tutorial",
+        "cookbook"
+      ]
+    },
+    {
+      "id": "reading",
+      "title": "Reading and explainers",
+      "match": [
+        "\\bblog\\b",
+        "explainer",
+        "deep dive"
+      ]
+    }
+  ],
+  "budget": {
+    "maxReadmeFetches": 600,
+    "readmeFloor": 2,
+    "readmeExcerptChars": 2400,
+    "readmeWeightFactor": 0.35,
+    "maxWebLookups": 450,
+    "dismissTtlDays": 21
+  },
+  "render": {
+    "maxPerCategory": 150
+  },
+  "site": {
+    "contact": {
+      "text": "Replace or delete this block: it is the pitch that shows under the list.",
+      "label": "Get in touch",
+      "email": "you@example.com",
+      "subject": "Directory"
+    },
+    "url": "https://example.github.io/awesome-example/",
+    "coverage": {
+      "minListStars": 20,
+      "maxListSources": 12,
+      "collapseRatio": 0.5,
+      "maxAgeDays": 7
+    },
+    "repository": "your-name/awesome-example",
+    "analyticsScript": ""
+  }
+}
