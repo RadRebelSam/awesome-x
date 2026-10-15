@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="awesome-x">
+  <!--
+    Favicon cut of the mark: heavier strokes and a taller dash, because at 16px
+    the thin version turns to mush.
+  -->
+  <rect width="64" height="64" rx="16" fill="#f5b942"/>
+  <rect x="8" y="28" width="16" height="8" rx="4" fill="#2a1d00"/>
+  <path d="M33 22L52 42M52 22L33 42" stroke="#2a1d00" stroke-width="7.5" stroke-linecap="round"/>
+</svg>
