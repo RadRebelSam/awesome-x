@@ -24,11 +24,25 @@
   "files": [
    "brand/logo-mark.svg",
    "brand/source/favicon.svg",
-   "brand/source/logo.svg"
+   "brand/source/logo.svg",
+   "brand/logo/mark.svg",
+   "brand/logo/lockup-horizontal-on-dark.svg",
+   "brand/logo/lockup-stacked-on-dark.svg",
+   "brand/logo/wordmark-on-dark.svg",
+   "brand/logo/lockup-horizontal-on-light.svg",
+   "brand/logo/lockup-stacked-on-light.svg",
+   "brand/logo/wordmark-on-light.svg"
   ]
  },
  "favicon": [
-  "brand/source/favicon.svg"
+  "brand/favicon/favicon-16.png",
+  "brand/favicon/favicon-32.png",
+  "brand/favicon/favicon-48.png",
+  "brand/favicon/favicon-180.png",
+  "brand/favicon/favicon-192.png",
+  "brand/favicon/favicon-512.png",
+  "brand/favicon/favicon.ico",
+  "brand/favicon/favicon.svg"
  ],
  "social": []
 }

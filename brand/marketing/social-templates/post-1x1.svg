@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#F5B942"/>
+  <image x="97" y="97" width="324" height="324" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGcgdHJhbnNmb3JtPSJzY2FsZSg4KSI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiNmNWI5NDIiLz4KICA8cmVjdCB4PSI4IiB5PSIyOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjMmExZDAwIi8+CiAgPHBhdGggZD0iTTMzIDIyTDUyIDQyTTUyIDIyTDMzIDQyIiBzdHJva2U9IiMyYTFkMDAiIHN0cm9rZS13aWR0aD0iNy41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L2c+Cjwvc3ZnPgo=" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPGcgdHJhbnNmb3JtPSJzY2FsZSg4KSI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiNmNWI5NDIiLz4KICA8cmVjdCB4PSI4IiB5PSIyOCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjMmExZDAwIi8+CiAgPHBhdGggZD0iTTMzIDIyTDUyIDQyTTUyIDIyTDMzIDQyIiBzdHJva2U9IiMyYTFkMDAiIHN0cm9rZS13aWR0aD0iNy41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L2c+Cjwvc3ZnPgo="/>
+  <rect x="97" y="466" width="292" height="13" fill="#2A1D00"/>
+  <text x="97" y="605" font-family="system-ui, sans-serif" font-size="92" font-weight="600" fill="#111111">AwesomeX</text>
+  <text x="97" y="688" font-family="system-ui, sans-serif" font-size="39" fill="#2A1D00"></text>
+  <text x="97" y="983" font-family="system-ui, sans-serif" font-size="31" fill="#111111" opacity="0.6">your headline goes here</text>
+</svg>
