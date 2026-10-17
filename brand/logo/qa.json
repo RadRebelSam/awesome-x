@@ -1,0 +1,22 @@
+[
+ {
+  "level": "ok",
+  "text": "one-colour shape keeps 97% of its form at 32 px"
+ },
+ {
+  "level": "ok",
+  "text": "one-colour shape keeps 90% of its form at 16 px"
+ },
+ {
+  "level": "ok",
+  "text": "drawing against its tile: 9.3:1"
+ },
+ {
+  "level": "ok",
+  "text": "tile on white page: 1.8:1"
+ },
+ {
+  "level": "ok",
+  "text": "tile on dark page: 11.1:1"
+ }
+]

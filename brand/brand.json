@@ -31,7 +31,16 @@
    "brand/logo/wordmark-on-dark.svg",
    "brand/logo/lockup-horizontal-on-light.svg",
    "brand/logo/lockup-stacked-on-light.svg",
-   "brand/logo/wordmark-on-light.svg"
+   "brand/logo/wordmark-on-light.svg",
+   "brand/logo/mark-black.svg",
+   "brand/logo/lockup-horizontal-black.svg",
+   "brand/logo/mark-white.svg",
+   "brand/logo/lockup-horizontal-white.svg",
+   "brand/logo/mark-content-transparent.svg",
+   "brand/logo/mark-content-on-white.svg",
+   "brand/logo/mark-content-on-black.svg",
+   "brand/logo/mark-onecolor.svg",
+   "brand/logo/lockup-horizontal-onecolor.svg"
   ]
  },
  "favicon": [
