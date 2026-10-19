@@ -1,58 +1,58 @@
 {
-  "name": "AwesomeX",
-  "slug": "awesomex",
-  "domain": "awesomex.radrebeldeveloper.com",
-  "tagline": "TODO(ask)",
-  "generated": "2026-10-14",
-  "note": "Machine-readable brand file. Edit palette.json and the logo files first, then keep this in step.",
-  "colors": {
-    "ground": "#F5B942",
-    "accent": "#2A1D00",
-    "accent_text_on_light": "#2A1D00",
-    "accent_bright_on_dark": "#A27100"
-  },
-  "fonts": [
-    "TODO(ask)"
-  ],
-  "voice": [
-    "TODO(ask)",
-    "TODO(ask)",
-    "TODO(ask)"
-  ],
-  "logo": {
-    "primary": "brand/logo-mark.svg",
-    "files": [
-      "brand/logo-mark.svg",
-      "brand/source/favicon.svg",
-      "brand/source/logo.svg",
-      "brand/logo/mark.svg",
-      "brand/logo/lockup-horizontal-on-dark.svg",
-      "brand/logo/lockup-stacked-on-dark.svg",
-      "brand/logo/wordmark-on-dark.svg",
-      "brand/logo/lockup-horizontal-on-light.svg",
-      "brand/logo/lockup-stacked-on-light.svg",
-      "brand/logo/wordmark-on-light.svg",
-      "brand/logo/mark-black.svg",
-      "brand/logo/lockup-horizontal-black.svg",
-      "brand/logo/mark-white.svg",
-      "brand/logo/lockup-horizontal-white.svg",
-      "brand/logo/mark-content-transparent.svg",
-      "brand/logo/mark-content-on-white.svg",
-      "brand/logo/mark-content-on-black.svg",
-      "brand/logo/mark-onecolor.svg",
-      "brand/logo/lockup-horizontal-onecolor.svg"
-    ]
-  },
-  "favicon": [
-    "brand/favicon/favicon-16.png",
-    "brand/favicon/favicon-32.png",
-    "brand/favicon/favicon-48.png",
-    "brand/favicon/favicon-180.png",
-    "brand/favicon/favicon-192.png",
-    "brand/favicon/favicon-512.png",
-    "brand/favicon/favicon.ico",
-    "brand/favicon/favicon.svg"
-  ],
-  "social": [],
-  "parent": "radrebeldeveloper.com"
+ "name": "AwesomeX",
+ "slug": "awesomex",
+ "domain": "awesomex.radrebeldeveloper.com",
+ "tagline": "TODO(ask)",
+ "generated": "2026-10-14",
+ "note": "Machine-readable brand file. Edit palette.json and the logo files first, then keep this in step.",
+ "colors": {
+  "ground": "#F5B942",
+  "accent": "#2A1D00",
+  "accent_text_on_light": "#2A1D00",
+  "accent_bright_on_dark": "#A27100"
+ },
+ "fonts": [
+  "TODO(ask)"
+ ],
+ "voice": [
+  "TODO(ask)",
+  "TODO(ask)",
+  "TODO(ask)"
+ ],
+ "logo": {
+  "primary": "brand/logo-mark.svg",
+  "files": [
+   "brand/logo-mark.svg",
+   "brand/source/favicon.svg",
+   "brand/source/logo.svg",
+   "brand/logo/mark.svg",
+   "brand/logo/lockup-horizontal-on-dark.svg",
+   "brand/logo/lockup-stacked-on-dark.svg",
+   "brand/logo/wordmark-on-dark.svg",
+   "brand/logo/lockup-horizontal-on-light.svg",
+   "brand/logo/lockup-stacked-on-light.svg",
+   "brand/logo/wordmark-on-light.svg",
+   "brand/logo/mark-black.svg",
+   "brand/logo/lockup-horizontal-black.svg",
+   "brand/logo/mark-white.svg",
+   "brand/logo/lockup-horizontal-white.svg",
+   "brand/logo/mark-content-transparent.svg",
+   "brand/logo/mark-content-on-white.svg",
+   "brand/logo/mark-content-on-black.svg",
+   "brand/logo/mark-onecolor.svg",
+   "brand/logo/lockup-horizontal-onecolor.svg"
+  ]
+ },
+ "favicon": [
+  "brand/favicon/favicon-16.png",
+  "brand/favicon/favicon-32.png",
+  "brand/favicon/favicon-48.png",
+  "brand/favicon/favicon-180.png",
+  "brand/favicon/favicon-192.png",
+  "brand/favicon/favicon-512.png",
+  "brand/favicon/favicon.ico",
+  "brand/favicon/favicon.svg"
+ ],
+ "social": [],
+ "parent": "radrebeldeveloper.com"
 }
