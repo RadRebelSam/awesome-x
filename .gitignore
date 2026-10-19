@@ -8,3 +8,9 @@ data/last-run.md
 
 # Build output of landing/, rebuilt on demand for upload.
 *.zip
+
+# Generated and local-only files (2026-10-18)
+RECOVER.md
+desktop.ini
+Thumbs.db
+brand/business/
