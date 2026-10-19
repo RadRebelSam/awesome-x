@@ -4,7 +4,7 @@ Edit this file. Anything marked TODO(ask) could not be read from the project fil
 
 - **What we do:** Build an awesome list that maintains itself, and let a decision model decide what
 - **Who we are for:** TODO(ask)
-- **Three voice words:** TODO(ask)
+- **Three voice words:** Curious, hands-on, candid (owner, 2026-10-18)
 - **Tagline:** An awesome list that maintains itself (owner, 2026-10-18)
 - **Positioning and USP:** TODO(ask)
 - **Messaging:** TODO(ask)
