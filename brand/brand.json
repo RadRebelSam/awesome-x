@@ -2,7 +2,7 @@
  "name": "AwesomeX",
  "slug": "awesomex",
  "domain": "awesomex.radrebeldeveloper.com",
- "tagline": "TODO(ask)",
+ "tagline": "An awesome list that maintains itself",
  "generated": "2026-10-14",
  "note": "Machine-readable brand file. Edit palette.json and the logo files first, then keep this in step.",
  "colors": {
